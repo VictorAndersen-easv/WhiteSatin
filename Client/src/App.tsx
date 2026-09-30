@@ -10,14 +10,10 @@ import toast from "react-hot-toast";
 const MyApi = new Api();
 
 export function App() {
+    
+    <div>
+    </div>
 
-   return <div>
-       Hello World!
-       <a target={"_blank"} href={"https://www.w3schools.com/css/paris.jpg"}>
-           <img src={"https://www.w3schools.com/css/paris.jpg"} alt="paris" />
-       </a>
-
-   </div>
 }
 
 export default App;
