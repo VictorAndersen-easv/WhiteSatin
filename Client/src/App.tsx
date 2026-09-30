@@ -10,44 +10,14 @@ import toast from "react-hot-toast";
 const MyApi = new Api();
 
 export function App() {
-    
-    const [newBookTitle,setNewBookTitle] = useState("")
-    const [books, setBooks] = useState<BookDto[]>([])
-    
-    useEffect(()=> {
-        MyApi.getBooks.libraryGetBooks({page: 1, resultsPerPage: 1}).then(r => {
-            const data = r.data;
-            setBooks(data);
-            
-        })
-    },[]);
 
-    function createBook() {
-        MyApi.createBook.libraryCreateBook({
-            BookTitle: newBookTitle,
-            AuthorId: "1",
-            NumberOfPages: 100
-        }).then(r => {
-            const duplicate = [...books, r.data];
-            setBooks(duplicate);
-        }).catch(e => {
-            toast(e.error.title);
-        })
-    }
+   return <div>
+       Hello World!
+       <a target={"_blank"} href={"https://www.w3schools.com/css/paris.jpg"}>
+           <img src={"https://www.w3schools.com/css/paris.jpg"} alt="paris" />
+       </a>
 
-    return (
-    <div className="app">
-        {
-            books.map(b => {
-                return <div key={b.bookId}>{b.bookTitle}</div>
-            })
-        }
-        
-        <input value={newBookTitle} onChange={ e => setNewBookTitle(e.target.value)}/>
-        <button onClick={createBook}>Create Book</button>
-        
-    </div>
-  );
+   </div>
 }
 
 export default App;
