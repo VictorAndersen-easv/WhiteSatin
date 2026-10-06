@@ -1,5 +1,6 @@
 ﻿using infra;
 using Microsoft.AspNetCore.Mvc;
+using service;
 
 public class LibraryController(LibraryService service) : ControllerBase
 {

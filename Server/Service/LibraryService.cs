@@ -2,6 +2,8 @@
 using infra;
 using LinqToDB;
 
+namespace service;
+
 public class LibraryService(MyDatabaseConnection db)
 {
 
@@ -39,7 +41,7 @@ public class LibraryService(MyDatabaseConnection db)
             BookId = Guid.NewGuid().ToString(),
             AuthorId = dto.AuthorId
         };
-            db.Insert(b);
-            return new BookDto(b);
+        db.Insert(b);
+        return new BookDto(b);
     }
 }

@@ -1,5 +1,6 @@
 using infra;
 using LinqToDB;
+using service;
 
 var builder = WebApplication.CreateBuilder(args);
 
