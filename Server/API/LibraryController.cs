@@ -1,5 +1,4 @@
-﻿using infra;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using service;
 
 public class LibraryController(LibraryService service) : ControllerBase
@@ -15,5 +14,4 @@ public class LibraryController(LibraryService service) : ControllerBase
     {
         return service.CreateBook(dto);
     }
-    
 }

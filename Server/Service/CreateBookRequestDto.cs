@@ -1,5 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Facet;using infra;
+﻿using Facet;
+using infra;
 
-[Facet(sourceType:typeof(Book), exclude: [nameof(Book.Author), nameof(Book.BookId)])]
+[Facet(typeof(Book), [nameof(Book.Author), nameof(Book.BookId)])]
 public partial class CreateBookRequestDto;

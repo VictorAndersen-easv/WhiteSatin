@@ -1,12 +1,12 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using Facet;
+﻿using Facet;
 using infra;
 
+namespace service;
 
-[Facet(sourceType:typeof(Author),exclude: nameof(Author.BooksWrittenByAuthor))]
+[Facet(typeof(Author), nameof(Author.BooksWrittenByAuthor))]
 public partial class AuthorDto;
 
-[Facet(sourceType: typeof(Book),exclude: nameof(Book.Author))]
+[Facet(typeof(Book), nameof(Book.Author))]
 public partial class BookDto
 {
     public AuthorDto Author { get; set; }

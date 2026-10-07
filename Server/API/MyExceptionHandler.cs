@@ -6,7 +6,7 @@ public class MyExceptionHandler : IExceptionHandler
     public ValueTask<bool> TryHandleAsync(HttpContext httpContext,
         Exception exception, CancellationToken cancellationToken)
     {
-        httpContext.Response.WriteAsJsonAsync(new ProblemDetails()
+        httpContext.Response.WriteAsJsonAsync(new ProblemDetails
         {
             Title = exception.Message
         });

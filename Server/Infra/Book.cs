@@ -4,21 +4,31 @@ namespace infra;
 
 public class Book
 {
-    [PrimaryKey]public string? BookId { get; set; }
-    public string? BookTitle { get; set; }
-    public int? NumberOfPages { get; set; }
-    public string? AuthorId { get; set; }
-    [Association(ThisKey = nameof(AuthorId), OtherKey = nameof(Author.AuthorId))]
-    public Author? Author { get; set; }
+    [PrimaryKey]
+    public string BookId { get; set; } = null!;
 
+    public string BookTitle { get; set; } = null!;
+
+    public int NumberOfPages { get; set; }
+
+    public string AuthorId { get; set; } = null!;
+
+    [Association(
+        ThisKey = nameof(AuthorId),
+        OtherKey = nameof(Author.AuthorId))]
+    public Author Author { get; set; } = null!;
 }
+
 
 public class Author
 {
-   [PrimaryKey] public string? AuthorId { get; set; }
-   public string? AuthorName { get; set; }
-   [Association(ThisKey = nameof(AuthorId),OtherKey = nameof(Book.AuthorId))]
-   public List<Book>? BooksWrittenByAuthor { get; set; }
-   
+    [PrimaryKey]
+    public string AuthorId { get; set; } = null!;
 
+    public string AuthorName { get; set; } = null!;
+
+    [Association(
+        ThisKey = nameof(AuthorId),
+        OtherKey = nameof(Book.AuthorId))]
+    public List<Book> BooksWrittenByAuthor { get; set; } = new();
 }
