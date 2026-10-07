@@ -5,7 +5,7 @@ using service;
 var builder = WebApplication.CreateBuilder(args);
 
 var dbPath = Path.Combine(
-    AppContext.BaseDirectory,
+    builder.Environment.ContentRootPath,
     "development.db");
 
 Console.WriteLine($"Database path: {dbPath}");
@@ -13,7 +13,7 @@ Console.WriteLine($"Database path: {dbPath}");
 var connectionString = $"Data Source={dbPath}";
 
 var options = new DataOptions<MyDatabaseConnection>(
-    new DataOptions().UseSQLite(connectionString));
+    new DataOptions().UseSQLite($"Data Source={dbPath}"));
 
 
 builder.Services.AddScoped<MyDatabaseConnection>(_ =>
